@@ -1,0 +1,55 @@
+/* ===== CARRUSEL MODULAR ===== */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  user-select: none;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Botones */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+/* Suavidad y responsividad */
+@media (max-width: 600px) {
+  .carousel { max-width: 100%; border-radius: 0; }
+  .carousel-btn { font-size: 1.5rem; }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Maquillaje</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/carrusel.css">
+  <link rel="stylesheet" href="css/color.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="links-header">
+      <div class="logo"> Tienda de Maquillaje</div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Inicio</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#" id="cartLink"> Carrito (0)</a></li>
+          <li><a href="#" id="logoutBtn">Salir</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+      <!-- Barra de filtros -->
+    <section id="filtros" class="filtros-bar">
+      <input type="text" id="searchInput" placeholder="🔎 Buscar producto...">
+      <select id="filterCategory">
+        <option value="" disabled selected>Seleccionar categoría</option>
+        <option value="base">Base</option>
+        <option value="polvo">Polvo compacto</option>
+        <option value="corrector">Corrector</option>
+        <option value="rubor">Rubor</option>
+        <option value="iluminador">Iluminador</option>
+        <option value="sombras">Sombras</option>
+        <option value="delineador">Delineador</option>
+        <option value="labial">Labial</option>
+        <option value="brillo">Brillo labial</option>
+        <option value="rimel">Rímel</option>
+        <option value="cejas">Cejas</option>
+        <option value="brochas">Brochas</option>
+        <option value="piel">Cuidado de piel</option>
+        <option value="kit">Set de maquillaje</option>
+      </select>
+       <input type="number" id="minPrice" placeholder="Mín $" min="0">
+       <input type="number" id="maxPrice" placeholder="Máx $" min="0">
+       <button id="applyFilters">Aplicar</button>
+       <button id="resetFilters" class="secondary">Resetear</button>
+     </section>
+  </header>
+
+  <!-- Productos -->
+  <main>
+
+    <!-- Carrusel Modular -->
+    <div class="carousel" id="carousel">
+      <div class="carousel-track">
+        <div class="carousel-item active">
+          <img src="https://i.pinimg.com/1200x/c5/1f/77/c51f77dc9b150d0838789fe102fba50e.jpg" alt="Imagen 1">
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/47/04/0a/47040ae6ff5ed3385134875c985da31d.jpg" alt="Imagen 2">
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/1200x/13/b6/25/13b625bd0fc9902b84e3b19efe06e4d8.jpg"alt="Imagen 3">
+        </div>
+      </div>
+    
+      <button class="carousel-btn prev">&#10094;</button>
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+
+    <!-- Título principal -->
+    <h1> Nuestros Productos</h1>
+
+    <!-- Contenedor de productos -->
+    <section id="productos" class="productos">
+      <!-- Los productos se insertan con JS -->
+    </section>
+
+    <!-- Panel de administración (solo para admins) -->
+    <section id="adminPanel" style="display:none;">
+      <h2> Agregar nuevo producto</h2>
+      <form id="addProdForm" class="admin-form">
+        <input type="text" id="prodName" placeholder="Nombre del producto" required>
+        <input type="text" id="prodDesc" placeholder="Descripción" required>
+        <input type="number" id="prodPrice" placeholder="Precio" min="0" required>
+        <input type="text" id="prodImg" placeholder="URL de la imagen" required>
+
+        <!-- Categorías -->
+        <select id="prodCategory" multiple required>
+          <option value="" disabled selected>Seleccionar categorías</option>
+          <option value="base">Base</option>
+          <option value="polvo">Polvo compacto</option>
+          <option value="corrector">Corrector</option>
+          <option value="rubor">Rubor</option>
+          <option value="iluminador">Iluminador</option>
+          <option value="sombras">Sombras</option>
+          <option value="delineador">Delineador</option>
+          <option value="labial">Labial</option>
+          <option value="brillo">Brillo labial</option>
+          <option value="rimel">Rímel</option>
+          <option value="cejas">Cejas</option>
+          <option value="brochas">Brochas</option>
+          <option value="piel">Cuidado de piel</option>
+          <option value="kit">Set de maquillaje</option>
+        </select>
+        <p style="font-size:12px;">(Podés mantener <b>Ctrl</b> o <b>Shift</b> para elegir varios)</p>
+
+        <button type="submit">Agregar producto</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Carrito lateral -->
+  <div id="cartModal" class="cart-modal">
+    <h2> Carrito</h2>
+    <ul id="cartItems"></ul>
+    <p id="cartTotal">Total: $0</p>
+    <button id="clearCart">Vaciar carrito</button>
+    <button id="goToCart" onclick="window.location.href='cart.html'">Ir al carrito</button>
+    <button id="closeCart">Cerrar</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Tienda de Maquillaje - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/shop.js"></script>
+  <script src="js/carrusel.js"></script>
+</body>
+</html>

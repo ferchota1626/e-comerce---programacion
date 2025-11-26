@@ -1,0 +1,165 @@
+/* === COLORES GENERALES === */
+body {
+  background: #FCE4EC;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* === HEADER Y FOOTER === */
+header,
+footer, .links-header {
+  background: #5e0920;
+  color: white;
+}
+
+/* === LINKS Y BOTONES DEL NAV === */
+nav a,
+nav button {
+  color: white;
+}
+
+nav a:hover,
+nav button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* === ELEMENTOS DE FORMULARIOS === */
+.form-container {
+  background: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+.form-container input {
+  border: 1px solid #ccc;
+}
+
+.form-container button {
+  background: #e63946;
+  color: white;
+}
+
+.form-container button:hover {
+  background: #d62828;
+}
+
+/* === PRODUCTOS === */
+.producto {
+  background: #fff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.producto p {
+  color: #555;
+}
+
+.precio {
+  color: #1d3557;
+}
+
+.producto button {
+  background: #457b9d;
+  color: white;
+}
+
+.producto button:hover {
+  background: #1d3557;
+}
+
+/* === CARRITO === */
+#cartContainer {
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+  border-bottom: 1px solid #ddd;
+}
+
+#clearCart {
+  background: #555;
+  color: white;
+}
+#checkoutBtn {
+  background: #d33;
+  color: white;
+}
+#clearCart:hover { background: #333; }
+#checkoutBtn:hover { background: #b22; }
+
+.cart-modal {
+  background: #fff;
+  box-shadow: -3px 0 8px rgba(0,0,0,0.3);
+}
+
+.cart-modal button {
+  background: #1d3557;
+  color: white;
+}
+
+.cart-modal button:hover {
+  background: #16324f;
+}
+
+/* === BARRA DE FILTROS === */
+.filtros-bar {
+  background: var(--bg-light, #f8f8f8);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.filtros-bar input,
+.filtros-bar select {
+  border: 1px solid #ccc;
+}
+
+.filtros-bar input:focus,
+.filtros-bar select:focus {
+  border-color: #d33;
+  box-shadow: 0 0 4px rgba(211, 51, 51, 0.5);
+}
+
+.filtros-bar button {
+  background: #d33;
+  color: white;
+}
+
+.filtros-bar button:hover {
+  background: #b22;
+}
+
+.filtros-bar button.secondary {
+  background: #555;
+}
+
+.filtros-bar button.secondary:hover {
+  background: #333;
+}
+
+/* === PANEL ADMIN === */
+#adminPanel {
+  background: var(--bg-light, #f8f8f8);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#adminPanel h2 {
+  color: #d33;
+}
+
+.admin-form input,
+.admin-form select {
+  border: 1px solid #ccc;
+}
+
+.admin-form input:focus,
+.admin-form select:focus {
+  border-color: #d33;
+  box-shadow: 0 0 4px rgba(211, 51, 51, 0.5);
+}
+
+.admin-form button {
+  background: #d33;
+  color: white;
+}
+
+.admin-form button:hover {
+  background: #b22;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito - Tienda Online</title>
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/color.css">
+  <script defer src="cart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo"> Tienda Online</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#" id="cartLink">Carrito (0)</a></li>
+        <li><a href="#" id="logoutBtn">Salir</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main id="carritoPage">
+    <section id="cartContainer">
+      <h2>Tu carrito</h2>
+      <ul id="cartItems"></ul>
+      <p id="cartTotal">Total: $0</p>
+
+      <div class="cart-actions">
+        <button id="clearCart">Vaciar carrito</button>
+        <button id="checkoutBtn">Finalizar compra</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Carrito lateral -->
+  <div id="cartModal" class="cart-modal">
+    <h2>Carrito rápido</h2>
+    <ul id="cartItemsModal"></ul>
+    <p id="cartTotalModal">Total: $0</p>
+    <button id="closeCart">Cerrar</button>
+    <button id="goToCart" onclick="window.location.href='cart.html'">Ir al carrito</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Tienda Online - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>

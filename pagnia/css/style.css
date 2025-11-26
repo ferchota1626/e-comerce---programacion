@@ -1,0 +1,385 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* General */
+body {
+  min-height: 100vh;
+  position: relative;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Formularios */
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+.form-container h2 {
+  margin-bottom: 20px;
+}
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.form-container button:hover {
+  background: #d62828;
+}
+.form-container p {
+  margin-top: 15px;
+}
+
+/* Header */
+header {
+  background: #1d3557;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Header */
+.links-header {
+  background: #1d3557;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a,
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: background 0.2s ease;
+}
+
+nav a:hover,
+nav button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+
+/* Productos */
+main {
+  margin-top: 160px;
+  padding: 40px;
+  text-align: center;
+}
+main h1 {
+  margin-bottom: 30px;
+}
+.productos {
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+.producto {
+  background: white;
+  max-height: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+.producto img {
+  max-height: 250px;
+  border-radius: 10px;
+}
+.producto h3 {
+  margin: 15px 0 10px;
+}
+.producto p {
+  font-size: 0.9em;
+  color: #555;
+}
+.precio {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #1d3557;
+}
+.producto button {
+  padding: 10px 15px;
+  background: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.producto button:hover {
+  background: #1d3557;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1d3557;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+
+/* Botón modo oscuro */
+header nav button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+
+/* Carrito modal */
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: -400px; /* fuera de la pantalla */
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -3px 0 8px rgba(0,0,0,0.3);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+.cart-modal.open {
+  right: 0; /* aparece en pantalla */
+}
+.cart-modal h2 {
+  margin-bottom: 15px;
+}
+.cart-modal ul {
+  list-style: none;
+  max-height: 60%;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+.cart-modal ul li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+.cart-modal button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#clearCart {
+  background: #e63946;
+  color: white;
+}
+#closeCart {
+  background: #1d3557;
+  color: white;
+}
+
+
+/* Barra de filtros */
+.filtros-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  background: var(--bg-light, #f8f8f8);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  align-items: center;
+}
+
+/* Inputs y select */
+.filtros-bar input,
+.filtros-bar select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 150px;
+  transition: all 0.2s ease-in-out;
+}
+
+.filtros-bar input:focus,
+.filtros-bar select:focus {
+  outline: none;
+  border-color: #d33;
+  box-shadow: 0 0 4px rgba(211, 51, 51, 0.5);
+}
+
+/* Botones */
+.filtros-bar button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #d33;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filtros-bar button:hover {
+  background: #b22;
+}
+
+/* Botón secundario (reset) */
+.filtros-bar button.secondary {
+  background: #555;
+}
+
+.filtros-bar button.secondary:hover {
+  background: #333;
+}
+
+
+/* Contenedor principal del formulario */
+
+#adminPanel{
+  margin-top: 50px;
+  padding: 20px 0px;
+}
+
+.form-container, 
+.admin-form {
+  max-width: 380px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-container:hover,
+.admin-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+/* Título */
+.admin-form h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Campos de texto */
+.admin-form input,
+.admin-form select {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-form input:focus,
+.admin-form select:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 2px rgba(230,57,70,0.2);
+  outline: none;
+}
+
+/* Select múltiple mejorado */
+.admin-form select[multiple] {
+  height: 120px;
+  background: #fafafa;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* Etiqueta informativa */
+.admin-form p {
+  font-size: 12px;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* Botón */
+.admin-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #e63946, #d62828);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.admin-form button:hover {
+  background: linear-gradient(135deg, #d62828, #b81d24);
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-container, .admin-form {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+
+#bookGenre {
+  height: 200px;
+  width: 350px;
+}
