@@ -9,16 +9,52 @@ document.addEventListener("DOMContentLoaded", () => {
         nombre: "Base líquida Fit Me",
         descripcion: "Base de maquillaje Maybelline – Acabado natural y cobertura media.",
         precio: 7500,
-        img: "img/base1.jpg",
+        img: "https://tse3.mm.bing.net/th/id/OIP.sBiTEljeYWrK23289V3g2QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
         categorias: ["base", "piel"]
       },
       {
         nombre: "Labial Matte Ink",
         descripcion: "Labial líquido de larga duración con acabado mate intenso.",
         precio: 5800,
-        img: "img/labial1.jpg",
+        img: "https://http2.mlstatic.com/D_NQ_NP_703416-MLC75842844141_042024-O.webp",
         categorias: ["labial", "labios"]
+      },
+      {
+        nombre: "Corrector HD Pro",
+        descripcion: "Corrector de alta cobertura que disimula ojeras e imperfecciones sin marcar líneas.",
+        precio: 4200,
+        img: "https://tse4.mm.bing.net/th/id/OIP.n8O473eSRNYNi5A7edPWZAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
+        categorias: ["corrector", "piel"]
+      },
+      {
+        nombre: "Rubor Peach Glow",
+        descripcion: "Rubor compacto tono durazno con acabado satinado y efecto saludable.",
+        precio: 3900,
+        img: "https://tse2.mm.bing.net/th/id/OIP.LYAMXa9hLAWHjxZzCdJC2AHaHN?rs=1&pid=ImgDetMain&o=7&rm=3",
+        categorias: ["rubor"]
+      },
+      {
+        nombre: "Iluminador Golden Shine",
+        descripcion: "Iluminador en polvo con destellos dorados para un glow radiante.",
+        precio: 5100,
+        img: "https://cdn.sistemawbuy.com.br/arquivos/cad5cc7133685cdd8d0d7880d11cba96/produtos/6681b947ee8eb/iluminador-trava-na-beleza-m3e7yo3xu9-6681b94fd78f0.jpg",
+        categorias: ["iluminador"]
+      },
+      {
+        nombre: "Paleta de Sombras Nude Dreams",
+        descripcion: "Paleta de 12 tonos neutros ideales para looks de día y noche.",
+        precio: 9800,
+        img: "https://tse3.mm.bing.net/th/id/OIP.disUgaL_bzWePBto7I2A9QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+        categorias: ["sombras"]
+      },
+      {
+        nombre: "Máscara de Pestañas Volume Max",
+        descripcion: "Rímel con efecto volumen extremo y larga duración.",
+        precio: 4600,
+        img: "https://tse1.mm.bing.net/th/id/OIP.ZBp4rSYMoum6hJoClxb7HwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+        categorias: ["rimel"]
       }
+      
     ];
 
     // --- Referencias del DOM ---
@@ -35,17 +71,39 @@ document.addEventListener("DOMContentLoaded", () => {
         const nombre = document.getElementById("prodName").value;
         const descripcion = document.getElementById("prodDesc").value;
         const precio = parseFloat(document.getElementById("prodPrice").value);
-        const img = document.getElementById("prodImg").value;
+        const imgInput = document.getElementById("prodImg");
+        const file = imgInput.files[0];
 
         // Obtener categorías seleccionadas
         const catSelect = document.getElementById("prodCategory");
         const categorias = Array.from(catSelect.selectedOptions).map(opt => opt.value);
 
         // Agregar producto
-        productos.push({ nombre, descripcion, precio, img, categorias });
-        saveProductos();
-        renderProductos();
-        addProdForm.reset();
+        if (!file) {
+          alert("Seleccioná una imagen");
+          return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+          const imgBase64 = event.target.result;
+        
+          productos.push({
+            nombre,
+            descripcion,
+            precio,
+            img: imgBase64,
+            categorias
+          });
+        
+          saveProductos();
+          renderProductos();
+          addProdForm.reset();
+        };
+
+        reader.readAsDataURL(file);
+
       });
     }
 
@@ -96,7 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-          <img src="${prod.img}" alt="${prod.nombre}">
+          <div class="img-container">
+            <img src="${prod.img}" alt="${prod.nombre}">
+          </div>
           <h3>${prod.nombre}</h3>
           <p>${prod.descripcion}</p>
           <p><strong>Categorías:</strong> ${prod.categorias ? prod.categorias.join(", ") : "Sin definir"}</p>

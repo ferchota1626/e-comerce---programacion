@@ -59,7 +59,8 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  padding: 15px 30px;
+  padding: 15px 10px;
+  padding-bottom: 0px;
   position: fixed;
   top: 0;
   left: 0;
@@ -129,9 +130,15 @@ main h1 {
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
 }
-.producto img {
-  max-height: 250px;
+
+.img-container{
+  width: 100%;
+}
+
+.img-container img {
+  width: 100%;
   border-radius: 10px;
+  object-fit:cover;
 }
 .producto h3 {
   margin: 15px 0 10px;
